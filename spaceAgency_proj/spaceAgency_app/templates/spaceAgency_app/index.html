@@ -1,0 +1,166 @@
+{% extends 'spaceAgency_app/layout.html' %}
+{% load static %}
+{% block content_body %}
+<div class="container-fluid">
+
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <div id="myModalCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#myModalCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#myModalCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-12 header">
+            <div class="logo"><img class="vector" src="{% static 'spaceAgency_app/images/logo.png' %}" alt="logo"></div>
+            <div class="menu">
+                <div class="advantages">Преимущества</div>
+                <div class="photos">Фотографии</div>
+            </div>
+            <div class="auth-button">
+                <div class="login">Вход</div>
+            </div>
+        </div>
+        <div class="first-block">
+            <div class="text-block">
+                <h1 class="h1-title">Космическое агенство</h1>
+                <p>Национальное управление по аэронавтике и исследованию космического пространства - ведомство,
+                    относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
+            </div>
+
+            <div class="row">
+                <!-- Блок с преимуществами -->
+                <div class="col-xl-6  d-flex justify-content-center align-items-center">
+                    <div class="advantages-block">
+                        <div class="advantage-row">
+                            <div class="advantage">
+                                <img src="{% static 'spaceAgency_app/images/rocket.png' %}" alt="Спейс шаттлы">
+                                <h3>Спейс шаттлы — пилотируемые корабли</h3>
+                            </div>
+                            <div class="advantage">
+                                <img src="{% static 'spaceAgency_app/images/telescope.png' %}"
+                                    alt="Лучшее телескопическое оборудование">
+                                <h3>Лучшее телескопическое оборудование</h3>
+                            </div>
+                        </div>
+                        <div class="advantage-row">
+                            <div class="advantage">
+                                <img src="{% static 'spaceAgency_app/images/moon.png' %}" alt="Целимся на Луну и Марс">
+                                <h3>Целимся на Луну и Марс</h3>
+                            </div>
+                            <div class="advantage">
+                                <img src="{% static 'spaceAgency_app/images/medal.png' %}"
+                                    alt="Золотая медаль по научным исследованиям">
+                                <h3>Золотая медаль по научным исследованиям</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Блок с картинкой -->
+                <div class="col-xl-6  d-flex justify-content-center align-items-center">
+                    <div class="photo">
+                        <img src="{% static 'spaceAgency_app/images/space1.png' %}" alt="Фото">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-block">
+            <div class="slider-title">
+                <h2>Фотографии</h2>
+            </div>
+            <script type="text/javascript" src="{% static 'spaceAgency_app/js/jquery-3.7.1.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'spaceAgency_app/js/slick/slick.min.js' %}"></script>
+
+
+            <div class="slider-container">
+
+                <div class="slider-for">
+                    {% for slider_item in sliders %}
+                    <div class="slider-block">
+                        <div class="slider-for-wrapper">
+                            <img src="{{ slider_item.image.url }}" alt="">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                <div class="slider-nav">
+                    {% for slider_item in sliders %}
+                    <div class="slider-block">
+                        <div class="slider-nav-wrapper">
+                            <img src="{{ slider_item.image.url }}" alt="">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(".slider-for").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            // speed: 500,
+            // centerMode: true,
+            // focusOnSelect: true,
+            arrows: false,
+            fade: true,
+            asNavFor: ".slider-nav"
+        });
+        $(".slider-nav").slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            speed: 500,
+            asNavFor: ".slider-for",
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true,
+            slide: "div",
+            arrows: true,
+            prevArrow: '<button class="btn-slider slider-prev"><img src="{% static "spaceAgency_app/images/prevarrow.png" %}" alt="prevarrow"></img></button>',
+            nextArrow: '<button class="btn-slider slider-next"><img src="{% static "spaceAgency_app/images/nextarrow.png" %}" alt="nextarrow"></img></button>',
+        });
+
+        // var currentSlide = 0;
+
+        // $('.slider-for').on('click', '.slider-for-wrapper img', function () {
+        //     currentSlide = $(this).index();
+        //     $('.carousel-inner').html('<div class="carousel-item active"><img src="' + $(this).attr('src') + '" class="d-block w-100"></div>');
+        //     $('.carousel-indicators').html('');
+        //     for (var i = 0; i < $('.slider-for img').length; i++) {
+        //         if (i == currentSlide) {
+        //             $('.carousel-indicators').append('<li data-bs-target="#myModalCarousel" data-bs-slide-to="' + i + '" class="active" aria-current="true" aria-label="Slide ' + (i + 1) + '"></li>');
+        //         } else {
+        //             $('.carousel-indicators').append('<li data-bs-target="#myModalCarousel" data-bs-slide-to="' + i + '" aria-label="Slide ' + (i + 1) + '"></li>');
+        //         }
+        //     }
+        //     $('#myModalCarousel').carousel(currentSlide);
+        //     $('#myModal').modal('show');
+        // });
+
+    });
+
+</script>
+{% endblock %}
