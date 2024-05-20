@@ -1,44 +1,60 @@
 {% extends 'spaceAgency_app/layout.html' %}
 {% load static %}
 {% block content_body %}
+<nav class="navbar navbar-expand-md header-nav">
+    <div class="container">
+        <div class="d-flex w-100 justify-content-between">
+            <div class="d-flex">
+                <button class="navbar-toggler icon-style me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                    <img class="toggle-img" src="{% static 'spaceAgency_app/images/toggle.png' %}" alt="">
+                </button>
+                <div class="navbar-brand"><img class="vector" src="{% static 'spaceAgency_app/images/logo.png' %}"
+                        alt="logo">
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto menu">
+                    <li class="nav-item">
+                        <a href="#" class="link-name">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="link-name">Фотографии</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="auth-button">Вход</button>
+        </div>
+    </div>
+</nav>
+
 <div class="container-fluid">
 
-    <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-body">
+    <div class="modal fade" id="sliderModal" tabindex="-1" aria-labelledby="sliderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: transparent;">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #3c3c3c85;">
+                    <div class="slider-container-modal">
 
-                    <div id="myModalCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-
+                        <div class="slider-for-modal">
+                            {% for slider_item in sliders %}
+                            <div>
+                                <div class="slider-for-wrapper-modal">
+                                    <img src="{{ slider_item.image.url }}" alt="">
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myModalCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myModalCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="row">
-        <div class="col-12 header">
-            <div class="logo"><img class="vector" src="{% static 'spaceAgency_app/images/logo.png' %}" alt="logo"></div>
-            <div class="menu">
-                <div class="advantages">Преимущества</div>
-                <div class="photos">Фотографии</div>
-            </div>
-            <div class="auth-button">
-                <div class="login">Вход</div>
-            </div>
-        </div>
         <div class="first-block">
             <div class="text-block">
                 <h1 class="h1-title">Космическое агенство</h1>
@@ -46,43 +62,38 @@
                     относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
             </div>
 
-            <div class="row">
-                <!-- Блок с преимуществами -->
-                <div class="col-xl-6  d-flex justify-content-center align-items-center">
-                    <div class="advantages-block">
-                        <div class="advantage-row">
-                            <div class="advantage">
-                                <img src="{% static 'spaceAgency_app/images/rocket.png' %}" alt="Спейс шаттлы">
-                                <h3>Спейс шаттлы — пилотируемые корабли</h3>
-                            </div>
-                            <div class="advantage">
-                                <img src="{% static 'spaceAgency_app/images/telescope.png' %}"
-                                    alt="Лучшее телескопическое оборудование">
-                                <h3>Лучшее телескопическое оборудование</h3>
-                            </div>
+            <div class="advantages-block">
+                <div class="advantages">
+                    <div class="advantage-row">
+                        <div class="advantage">
+                            <img src="{% static 'spaceAgency_app/images/rocket.png' %}" alt="Спейс шаттлы">
+                            <h3>Спейс шаттлы — пилотируемые корабли</h3>
                         </div>
-                        <div class="advantage-row">
-                            <div class="advantage">
-                                <img src="{% static 'spaceAgency_app/images/moon.png' %}" alt="Целимся на Луну и Марс">
-                                <h3>Целимся на Луну и Марс</h3>
-                            </div>
-                            <div class="advantage">
-                                <img src="{% static 'spaceAgency_app/images/medal.png' %}"
-                                    alt="Золотая медаль по научным исследованиям">
-                                <h3>Золотая медаль по научным исследованиям</h3>
-                            </div>
+                        <div class="advantage">
+                            <img src="{% static 'spaceAgency_app/images/telescope.png' %}"
+                                alt="Лучшее телескопическое оборудование">
+                            <h3>Лучшее телескопическое оборудование</h3>
+                        </div>
+                    </div>
+                    <div class="advantage-row">
+                        <div class="advantage">
+                            <img src="{% static 'spaceAgency_app/images/moon.png' %}" alt="Целимся на Луну и Марс">
+                            <h3>Целимся на Луну и Марс</h3>
+                        </div>
+                        <div class="advantage">
+                            <img src="{% static 'spaceAgency_app/images/medal.png' %}"
+                                alt="Золотая медаль по научным исследованиям">
+                            <h3>Золотая медаль по научным исследованиям</h3>
                         </div>
                     </div>
                 </div>
-                <!-- Блок с картинкой -->
-                <div class="col-xl-6  d-flex justify-content-center align-items-center">
-                    <div class="photo">
-                        <img src="{% static 'spaceAgency_app/images/space1.png' %}" alt="Фото">
-                    </div>
+                <div class="photo">
+                    <img src="{% static 'spaceAgency_app/images/space1.png' %}" alt="Фото">
                 </div>
+
             </div>
         </div>
-        <div class="slider-block">
+        <div class="slider-block p-0">
             <div class="slider-title">
                 <h2>Фотографии</h2>
             </div>
@@ -91,18 +102,16 @@
 
 
             <div class="slider-container">
-
                 <div class="slider-for">
                     {% for slider_item in sliders %}
                     <div class="slider-block">
                         <div class="slider-for-wrapper">
-                            <img src="{{ slider_item.image.url }}" alt="">
+                            <img data-bs-toggle="modal" data-bs-target="#sliderModal" src="{{ slider_item.image.url }}"
+                                alt="">
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-
-
                 <div class="slider-nav">
                     {% for slider_item in sliders %}
                     <div class="slider-block">
@@ -119,15 +128,22 @@
 <script>
     $(document).ready(function () {
 
+        $(".slider-for-modal").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            asNavFor: ".slider-for,.slider-for",
+            prevArrow: '<button class="btn-slider slider-prev"><img src="{% static "spaceAgency_app/images/prevarrow.png" %}" alt="prevarrow"></img></button>',
+            nextArrow: '<button class="btn-slider slider-next"><img src="{% static "spaceAgency_app/images/nextarrow.png" %}" alt="nextarrow"></img></button>',
+        });
         $(".slider-for").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            // speed: 500,
-            // centerMode: true,
-            // focusOnSelect: true,
             arrows: false,
             fade: true,
-            asNavFor: ".slider-nav"
+            asNavFor: ".slider-nav",
+
         });
         $(".slider-nav").slick({
             slidesToShow: 4,
@@ -141,25 +157,21 @@
             arrows: true,
             prevArrow: '<button class="btn-slider slider-prev"><img src="{% static "spaceAgency_app/images/prevarrow.png" %}" alt="prevarrow"></img></button>',
             nextArrow: '<button class="btn-slider slider-next"><img src="{% static "spaceAgency_app/images/nextarrow.png" %}" alt="nextarrow"></img></button>',
+            responsive: [
+                {
+                    breakpoint: 1070,
+                    settings: {
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 470,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                }
+            ]
         });
-
-        // var currentSlide = 0;
-
-        // $('.slider-for').on('click', '.slider-for-wrapper img', function () {
-        //     currentSlide = $(this).index();
-        //     $('.carousel-inner').html('<div class="carousel-item active"><img src="' + $(this).attr('src') + '" class="d-block w-100"></div>');
-        //     $('.carousel-indicators').html('');
-        //     for (var i = 0; i < $('.slider-for img').length; i++) {
-        //         if (i == currentSlide) {
-        //             $('.carousel-indicators').append('<li data-bs-target="#myModalCarousel" data-bs-slide-to="' + i + '" class="active" aria-current="true" aria-label="Slide ' + (i + 1) + '"></li>');
-        //         } else {
-        //             $('.carousel-indicators').append('<li data-bs-target="#myModalCarousel" data-bs-slide-to="' + i + '" aria-label="Slide ' + (i + 1) + '"></li>');
-        //         }
-        //     }
-        //     $('#myModalCarousel').carousel(currentSlide);
-        //     $('#myModal').modal('show');
-        // });
-
     });
 
 </script>
