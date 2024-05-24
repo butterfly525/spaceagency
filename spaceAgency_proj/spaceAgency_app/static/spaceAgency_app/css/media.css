@@ -75,14 +75,11 @@
 
     }
 
-    .advantage {
-        padding: 20px 2px;
-    }
-
-    .photo {
+   
+    .advantage-main-img {
+        min-width: 340px;
         width: 340px;
         height: 340px;
-        min-width: 340px;
     }
 
     .slider-title h2 {

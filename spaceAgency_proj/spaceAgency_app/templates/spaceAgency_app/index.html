@@ -62,35 +62,40 @@
                     относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
             </div>
 
-            <div class="advantages-block">
-                <div class="advantages">
-                    <div class="advantage-row">
-                        <div class="advantage">
-                            <img src="{% static 'spaceAgency_app/images/rocket.png' %}" alt="Спейс шаттлы">
-                            <h3>Спейс шаттлы — пилотируемые корабли</h3>
-                        </div>
-                        <div class="advantage">
-                            <img src="{% static 'spaceAgency_app/images/telescope.png' %}"
-                                alt="Лучшее телескопическое оборудование">
-                            <h3>Лучшее телескопическое оборудование</h3>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-2  align-items-center">
+                    <div class="col">
+                        <div class="row row-cols-2 gy-4">
+                            <div class="col p-sm-4 p-2 d-flex flex-column  align-items-center justify-content-center">
+                                <img class="advantage-img" src="{% static 'spaceAgency_app/images/rocket.png' %}"
+                                    alt="Спейс шаттлы">
+                                <h3 class="advantage-text">Спейс шаттлы — пилотируемые корабли</h3>
+                            </div>
+                            <div class="col p-sm-4 p-2 d-flex flex-column  align-items-center justify-content-center">
+                                <img class="advantage-img" src="{% static 'spaceAgency_app/images/telescope.png' %}"
+                                    alt="Лучшее телескопическое оборудование">
+                                <h3 class="advantage-text">Лучшее телескопическое оборудование</h3>
+                            </div>
+                            <div class="col p-sm-4 p-2 d-flex flex-column  align-items-center justify-content-center">
+                                <img class="advantage-img" src="{% static 'spaceAgency_app/images/moon.png' %}"
+                                    alt="Целимся на Луну и Марс">
+                                <h3 class="advantage-text">Целимся на Луну и Марс</h3>
+                            </div>
+                            <div class="col p-sm-4 p-2 d-flex flex-column  align-items-center justify-content-center">
+                                <img class="advantage-img" src="{% static 'spaceAgency_app/images/medal.png' %}"
+                                    alt="Золотая медаль по научным исследованиям">
+                                <h3 class="advantage-text">Золотая медаль по научным исследованиям</h3>
+                            </div>
                         </div>
                     </div>
-                    <div class="advantage-row">
-                        <div class="advantage">
-                            <img src="{% static 'spaceAgency_app/images/moon.png' %}" alt="Целимся на Луну и Марс">
-                            <h3>Целимся на Луну и Марс</h3>
-                        </div>
-                        <div class="advantage">
-                            <img src="{% static 'spaceAgency_app/images/medal.png' %}"
-                                alt="Золотая медаль по научным исследованиям">
-                            <h3>Золотая медаль по научным исследованиям</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="photo">
-                    <img src="{% static 'spaceAgency_app/images/space1.png' %}" alt="Фото">
-                </div>
 
+
+                        <div class="col d-flex justify-content-center">
+                            <img class="advantage-main-img" src="{% static 'spaceAgency_app/images/space1.png' %}"
+                                alt="Фото">
+                        </div>
+                    
+                </div>
             </div>
         </div>
         <div class="slider-block p-0">
