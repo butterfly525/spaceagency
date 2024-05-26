@@ -128,3 +128,13 @@ STATICFILES_DIRS = [BASE_DIR / 'spaceAgency_app/static']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'admin_preview': {'size': (250, 180), 'crop': False},
+        'slider_full': {'size': (1500, 0), 'crop': False},
+        'slider_for_preview': {'size': (1000, 0), 'crop': False},
+        'slider_nav_preview': {'size': (500, 0), 'crop': False},
+    },
+}

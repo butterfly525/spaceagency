@@ -1,9 +1,8 @@
 from django.contrib import admin
 from .models import Slider
 from django.utils.safestring import mark_safe
-# from django_admin_sortable2.admin import sortable2_admin_register
 from adminsortable2.admin import SortableAdminMixin
-
+from easy_thumbnails.files import get_thumbnailer
 
 @admin.register(Slider)
 class SliderAdmin(SortableAdminMixin, admin.ModelAdmin):
@@ -11,7 +10,7 @@ class SliderAdmin(SortableAdminMixin, admin.ModelAdmin):
 
     def image_tag(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" style="width:50%;height:50%;object-fit:cover;"/>')
+            return mark_safe(f'<img src="{get_thumbnailer(obj.image)["admin_preview"].url}" />')
         else:
             return ''
     image_tag.allow_tags = True

@@ -22,7 +22,6 @@
     gap: 45px;
 }
 
-
 .toggle-img {
     width: 20px;
     height: 15px;
@@ -73,7 +72,7 @@
     align-items: center;
     padding: 0px;
     gap: 30px;
-    max-width: 745px;
+    max-width: 65%;
 }
 
 .h1-title {
@@ -97,7 +96,6 @@
     letter-spacing: 0.02em;
     color: #3C3C3C;
 }
-
 
 .advantage-img {
     width: 64px;
@@ -126,8 +124,6 @@
     object-fit: cover;
 }
 
-
-
 .slider-block {
     background: #3C3C3C;
 }
@@ -155,62 +151,61 @@
 }
 
 
-.slider-container {
-    max-width: 900px;
-    margin: 0 auto 50px;
-}
-.slider-container-modal{
+.slider-container-modal {
     max-width: 1300px;
     margin: 0 auto 50px;
 }
-.slider-for-wrapper {
-    width: 750px;
-    height: 420px;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
-    margin: 45px auto;
-    display: flex;
-    justify-content: center;
-}
 
 .slider-for-wrapper-modal {
-   
     height: 80vh;
+    width: 80vw;
     margin: auto;
-    padding: 50px;
-    border-radius: 40px;
     display: flex;
     justify-content: center;
-}
-
-.slider-for-wrapper img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 40px;
 }
 
 .slider-for-wrapper-modal img {
-    max-width: 70vw;
-    object-fit: cover;
-    border-radius: 40px;
+    max-width: 100%;
+    object-fit: scale-down;
 }
 
-.slick-current .slider-nav-wrapper img {
-    border: 1px solid #FFFFFF;
+ .slider-for-wrapper {
+    max-width: 750px;
+    height: 420px;
+    width: 90%;
     border-radius: 40px;
+    overflow: hidden;
+    margin: 45px auto;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.slider-for-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   
+}
+
+
+.slick-current .slider-nav-wrapper  {
+    border: 1px solid #FFFFFF;
+    
 }
 
 .slider-nav-wrapper {
     width: 165px;
+    height: 165px;
     margin: 0 auto;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
 .slider-nav-wrapper img {
-    width: 165px;
-    height: 165px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 40px;
+   
 }
 
 .btn-slider {
@@ -226,7 +221,6 @@
 .slider-prev {
     left: -80px;
 }
-
 
 .slider-next {
     right: -80px;

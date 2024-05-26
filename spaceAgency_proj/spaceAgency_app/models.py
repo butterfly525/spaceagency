@@ -1,7 +1,7 @@
 from django.db import models
 from filer.fields.image import FilerImageField
 from adminsortable2.admin import SortableAdminMixin
-
+from django.utils.translation import gettext_lazy as _
 
 class Slider(models.Model):
     title = models.CharField(max_length=200, verbose_name='Название слайдера')
@@ -14,6 +14,8 @@ class Slider(models.Model):
     )
 
     class Meta:
+        verbose_name = _("Слайдер")
+        verbose_name_plural = _("Слайдеры")
         ordering = ['my_order']
 
     def __str__(self):

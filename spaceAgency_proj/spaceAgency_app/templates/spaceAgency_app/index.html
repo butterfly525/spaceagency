@@ -1,6 +1,7 @@
 {% extends 'spaceAgency_app/layout.html' %}
 {% load static %}
 {% block content_body %}
+{% load thumbnail %}
 <nav class="navbar navbar-expand-md header-nav">
     <div class="container">
         <div class="d-flex w-100 justify-content-between">
@@ -14,7 +15,7 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav m-auto menu">
+                <ul class="navbar-nav m-auto menu"> 
                     <li class="nav-item">
                         <a href="#" class="link-name">Преимущества</a>
                     </li>
@@ -32,18 +33,18 @@
 
     <div class="modal fade" id="sliderModal" tabindex="-1" aria-labelledby="sliderModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: transparent;">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" style="background-color: #3c3c3c85;">
+                <div class="modal-body" style="background-color: #3c3c3c;">
                     <div class="slider-container-modal">
 
                         <div class="slider-for-modal">
                             {% for slider_item in sliders %}
                             <div>
                                 <div class="slider-for-wrapper-modal">
-                                    <img src="{{ slider_item.image.url }}" alt="">
+                                    <img src="{{ slider_item.image|thumbnail_url:'slider_full' }}" alt="">
                                 </div>
                             </div>
                             {% endfor %}
@@ -106,12 +107,12 @@
             <script type="text/javascript" src="{% static 'spaceAgency_app/js/slick/slick.min.js' %}"></script>
 
 
-            <div class="slider-container">
+            <div class="container p-0 mb-5">
                 <div class="slider-for">
                     {% for slider_item in sliders %}
                     <div class="slider-block">
                         <div class="slider-for-wrapper">
-                            <img data-bs-toggle="modal" data-bs-target="#sliderModal" src="{{ slider_item.image.url }}"
+                            <img data-bs-toggle="modal" data-bs-target="#sliderModal" src="{{ slider_item.image|thumbnail_url:'slider_for_preview' }}"
                                 alt="">
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                     {% for slider_item in sliders %}
                     <div class="slider-block">
                         <div class="slider-nav-wrapper">
-                            <img src="{{ slider_item.image.url }}" alt="">
+                            <img src="{{ slider_item.image|thumbnail_url:'slider_nav_preview' }}" alt="">
                         </div>
                     </div>
                     {% endfor %}
@@ -151,7 +152,7 @@
 
         });
         $(".slider-nav").slick({
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1,
             speed: 500,
             asNavFor: ".slider-for",
@@ -164,15 +165,24 @@
             nextArrow: '<button class="btn-slider slider-next"><img src="{% static "spaceAgency_app/images/nextarrow.png" %}" alt="nextarrow"></img></button>',
             responsive: [
                 {
-                    breakpoint: 1070,
+                    breakpoint: 1300,
                     settings: {
                         arrows: false,
                     }
                 },
                 {
-                    breakpoint: 470,
+                    breakpoint: 994,
                     settings: {
+                        arrows: false,
+                        slidesToShow: 4,
+                    }
+                },
+                {
+                    breakpoint: 769,
+                    settings: {
+                        arrows: false,
                         slidesToShow: 3,
+                        
                     }
                 }
             ]
